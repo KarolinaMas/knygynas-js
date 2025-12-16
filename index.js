@@ -39,31 +39,44 @@ function countBookSum(dataObj) {
 function countDiscount(dataObj) {
   const expensiveBooks = dataObj.filter(({ price }) => price > 10);
 
-  const booksWithDiscount = expensiveBooks
-    .map(({ price, title }) => ({bookTitle: title, oldPrice: price, newPrice: (price * 0.75).toFixed(2)}))
+  const booksWithDiscount = expensiveBooks.map(({ price, title }) => ({
+    bookTitle: title,
+    oldPrice: price,
+    newPrice: (price * 0.75).toFixed(2),
+  }));
 
-  const result = booksWithDiscount.map(({bookTitle, oldPrice, newPrice}) => `Knyga: ${bookTitle} Sena kaina: ${oldPrice} Pardavimo kaina: ${newPrice} Pritaikyta nuolaida -25%`).join("\n");
-  
-  
+  const result = booksWithDiscount
+    .map(
+      ({ bookTitle, oldPrice, newPrice }) =>
+        `Knyga: ${bookTitle} Sena kaina: ${oldPrice} Pardavimo kaina: ${newPrice} Pritaikyta nuolaida -25%`
+    )
+    .join("\n");
+
   return `!!! Nukainuota !!! \n${result}`;
 }
 
 // console.log(countDiscount(books));
 
 function sortByPrice(dataObj) {
-    return dataObj.sort((a, b) => a.price - b.price);
+  return dataObj.sort((a, b) => a.price - b.price);
 }
 
 // console.log(sortByPrice(books));
 
 function sortByTitle(dataObj) {
-    return dataObj.map(({title}) => title).sort();
+  const sortedArr = dataObj.map(({ title }) => title).sort();
+
+  const result = sortedArr
+    .map((sortedTitle) => dataObj.filter((book) => book.title === sortedTitle))
+    .flat();
+
+  return result;
 }
 
 // console.log(sortByTitle(books));
 
 function getExpensiveBooks(dataObj) {
-    return dataObj.filter(({price}) => price > 7.5)
+  return dataObj.filter(({ price }) => price > 7.5);
 }
 
-console.log(getExpensiveBooks(books));
+// console.log(getExpensiveBooks(books));
