@@ -50,4 +50,8 @@ function countDiscount(dataObj) {
 
 // console.log(countDiscount(books));
 
+function sortByPrice(dataObj) {
+    return dataObj.sort((a, b) => a.price - b.price);
+}
 
+console.log(sortByPrice(books));
