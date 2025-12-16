@@ -20,6 +20,10 @@ function addBook(dataObj, bookTitle, bookPrice) {
   return dataObj;
 }
 
-console.log(addBook(books, "Knyga #6", 2.75));
+// console.log(addBook(books, "Knyga #6", 2.75));
 
+function getLastBook(dataObj) {
+    return dataObj[dataObj.length - 1];
+}
 
+console.log(getLastBook(books));
