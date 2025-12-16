@@ -54,4 +54,16 @@ function sortByPrice(dataObj) {
     return dataObj.sort((a, b) => a.price - b.price);
 }
 
-console.log(sortByPrice(books));
+// console.log(sortByPrice(books));
+
+function sortByTitle(dataObj) {
+    return dataObj.map(({title}) => title).sort();
+}
+
+// console.log(sortByTitle(books));
+
+function getExpensiveBooks(dataObj) {
+    return dataObj.filter(({price}) => price > 7.5)
+}
+
+console.log(getExpensiveBooks(books));
