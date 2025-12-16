@@ -8,4 +8,10 @@ function getBookName(dataObj) {
 }
 
 
-console.log(getBookName(books));
+// console.log(getBookName(books));
+
+function getObjLength(dataObj) {
+    return dataObj.length;
+}
+
+console.log(getObjLength(books));
