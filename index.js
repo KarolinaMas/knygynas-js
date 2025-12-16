@@ -26,4 +26,12 @@ function getLastBook(dataObj) {
     return dataObj[dataObj.length - 1];
 }
 
-console.log(getLastBook(books));
+// console.log(getLastBook(books));
+
+function countBookSum(dataObj) {
+    const result = dataObj.reduce((sum, {price}) => sum + price, 0);
+
+    return result.toFixed(2);
+}
+
+console.log(countBookSum(books));
